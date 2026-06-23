@@ -9,7 +9,6 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/R²_Skoru-0.9347-success?style=flat-square" alt="R2 Skoru" />
   <img src="https://img.shields.io/badge/Model-Doğrusal_Regresyon-blue?style=flat-square" alt="Model" />
   <img src="https://img.shields.io/badge/Lisans-MIT-lightgrey?style=flat-square" alt="Lisans" />
 </p>
@@ -20,7 +19,7 @@
 
 > **Amaç:** Bir girişimin harcamalarına ve konumuna dayanarak elde edeceği **karı** tahmin etmek.
 
-Bu proje, klasik **"50 Startups"** veri seti üzerinde bir **Çoklu Doğrusal Regresyon** modeli kurar. Dört bağımsız değişken — *AR-GE Harcaması*, *Yönetim Harcaması*, *Pazarlama Harcaması* ve *Eyalet* — kullanılarak, model iş yatırımları ile ortaya çıkan **Kar** arasındaki ilişkiyi öğrenir.
+Bu proje, **`Startups.csv`** veri seti üzerinde bir **Çoklu Doğrusal Regresyon** modeli kurar. Dört bağımsız değişken — *AR-GE Harcaması*, *Yönetim Harcaması*, *Pazarlama Harcaması* ve *Eyalet* — kullanılarak, model iş yatırımları ile ortaya çıkan **Kar** arasındaki ilişkiyi öğrenir.
 
 İş akışı, eksiksiz bir makine öğrenmesi hattını kapsar:
 
@@ -34,7 +33,7 @@ Bu proje, klasik **"50 Startups"** veri seti üzerinde bir **Çoklu Doğrusal Re
 
 ## 📂 Veri Seti
 
-Veri seti, farklı girişimleri tanımlayan **50 kayıt** içerir. Her satır, şirketin üç kategorideki harcamalarını, faaliyet gösterdiği eyaleti ve elde ettiği karı barındırır.
+Veri seti (**`Startups.csv`**), farklı girişimleri tanımlayan kayıtlar içerir. Her satır, şirketin üç kategorideki harcamalarını, faaliyet gösterdiği eyaleti ve elde ettiği karı barındırır.
 
 | Sütun               | Tip         | Açıklama                                                     |
 | :------------------ | :---------- | :----------------------------------------------------------- |
@@ -99,33 +98,23 @@ jupyter notebook multiple_linear_regressions.ipynb
 
 ## 🔬 Model Performansı & Sonuçlar
 
-Model, verinin **%80**'i üzerinde eğitildi ve görülmemiş **%20**'lik test seti üzerinde değerlendirildi.
+Model, verinin bir bölümü üzerinde eğitildi ve görülmemiş test seti üzerinde değerlendirildi. Performans, aşağıdaki metrikler aracılığıyla raporlanır:
 
-| Metrik                          | Değer             | Yorum                                                        |
-| :------------------------------ | :---------------- | :----------------------------------------------------------- |
-| 🎯 **R-Kare (R²)**                | **`0.9347`**      | Girişim karındaki varyansın **~%93.5**'ini açıklıyor.        |
-| 📉 **Ortalama Kareli Hata (MSE)** | **`83,502,864.03`** | Tahminler ile gerçek değerler arasındaki ortalama kareli fark. |
+| Metrik                          | Yorum                                                        |
+| :------------------------------ | :----------------------------------------------------------- |
+| 🎯 **R-Kare (R²)**                | Modelin, girişim karındaki varyansın ne kadarını açıkladığını gösterir. |
+| 📉 **Ortalama Kareli Hata (MSE)** | Tahminler ile gerçek değerler arasındaki ortalama kareli farkı ölçer. |
 
-> ✅ **Önemli çıkarım:** **0.9347** R² değeri ile model, kardaki değişkenliğin büyük çoğunluğunu yakalayarak **güçlü bir uyum** sergiliyor. Analiz, **AR-GE Harcaması**'nın bir girişimin karlılığındaki en etkili faktör olduğunu doğruluyor.
+> ✅ **Önemli çıkarım:** Model, kardaki değişkenliğin büyük çoğunluğunu yakalayarak güçlü bir uyum sergiliyor. Analiz, **AR-GE Harcaması**'nın bir girişimin karlılığındaki en etkili faktör olduğunu doğruluyor.
 
 ### 📋 Tahminler vs. Gerçek (Test Seti)
 
-Modelin tahmin ettiği kar ile gerçek değerlerin örnek bir karşılaştırması:
+Not defteri, modelin tahmin ettiği kar ile gerçek değerleri yan yana karşılaştıran bir tablo üretir. Tahminlerin gerçek karı yakından takip etmesi, modelin güvenilirliğini pekiştirir.
 
-| Tahmin Edilen Kar ($) | Gerçek Kar ($)   |
-| :-------------------- | :--------------- |
-| 103,015.20            | 103,282.38       |
-| 132,582.28            | 144,259.40       |
-| 132,447.74            | 146,121.95       |
-| 71,976.10             | 77,798.83        |
-| 178,537.48            | 191,050.39       |
-| 167,921.07            | 166,187.94       |
-
-> 🔍 Tahminler gerçek karı yakından takip ederek modelin güvenilirliğini pekiştiriyor.
+> 🔍 Güncel metrikleri ve karşılaştırma tablosunu görmek için not defterindeki hücreleri çalıştırın.
 
 ---
 
 <p align="center">
   <i>⭐ Bu projeyi faydalı bulduysanız, bir yıldız vermeyi düşünün!</i>
 </p>
-```
